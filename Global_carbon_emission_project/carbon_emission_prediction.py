@@ -9,29 +9,41 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.cluster import KMeans
 from sklearn.metrics import r2_score, accuracy_score
 
-# Ensure results folder exists
+# -----------------------------
+# Step 1: Ensure results folder exists
+# -----------------------------
 if not os.path.exists("results"):
     os.makedirs("results")
 
-# Load dataset
-data = pd.read_csv("global_carbon_emissions_1960_2020.csv")
+# -----------------------------
+# Step 2: Load Dataset (1960–2026)
+# -----------------------------
+data = pd.read_csv("global_carbon_emissions_1960_2026.csv")
 data.dropna(inplace=True)
 
-# Global Trend
+# -----------------------------
+# Step 3: Global Trend Graph
+# -----------------------------
 plt.figure(figsize=(12,6))
 sns.lineplot(x="Year", y="CO2_Emissions", data=data, hue="Country", marker="o")
-plt.title("Global Carbon Emissions (1960–2020)")
+plt.axvline(x=2020, color="gray", linestyle="--", label="Historical vs Projected")
+plt.title("Global Carbon Emissions (1960–2026)")
 plt.xlabel("Year")
 plt.ylabel("CO2 Emissions (Million Tons)")
+plt.legend()
 plt.grid(True)
 plt.savefig("results/global_trend.png")
 plt.close()
 
-# Feature Engineering
+# -----------------------------
+# Step 4: Feature Engineering
+# -----------------------------
 data["Emissions_per_capita"] = data["CO2_Emissions"] / data["Population"]
 data["GDP_per_capita"] = data["GDP"] / data["Population"]
 
-# Regression Models
+# -----------------------------
+# Step 5: Regression Models
+# -----------------------------
 X = data[["Year", "Population", "GDP", "GDP_per_capita"]]
 y = data["CO2_Emissions"]
 
@@ -49,7 +61,9 @@ print("Linear Regression R²:", r2_score(y_test, y_pred_lr))
 print("Ridge Regression R²:", r2_score(y_test, y_pred_ridge))
 print("Random Forest R²:", r2_score(y_test, y_pred_rf))
 
-# Regression Plot
+# -----------------------------
+# Step 6: Regression Plot
+# -----------------------------
 plt.figure(figsize=(10,6))
 plt.scatter(X_test["Year"], y_test, color="blue", label="Actual")
 plt.scatter(X_test["Year"], y_pred_lr, color="red", label="Predicted (Linear Regression)")
@@ -60,7 +74,9 @@ plt.legend()
 plt.savefig("results/regression_plot.png")
 plt.close()
 
-# Model Comparison Plot
+# -----------------------------
+# Step 7: Model Comparison Plot
+# -----------------------------
 plt.figure(figsize=(10,6))
 plt.plot(y_test.values, label="Actual", marker="o")
 plt.plot(y_pred_lr, label="Linear Regression", marker="x")
@@ -73,7 +89,9 @@ plt.legend()
 plt.savefig("results/model_comparison.png")
 plt.close()
 
-# Decision Tree Classification
+# -----------------------------
+# Step 8: Decision Tree Classification
+# -----------------------------
 def categorize_emission(value):
     if value > 5000: return "High"
     elif value > 2000: return "Medium"
@@ -91,7 +109,9 @@ y_pred_c = dt_model.predict(X_test_c)
 
 print("Decision Tree Accuracy:", accuracy_score(y_test_c, y_pred_c))
 
-# K-Means Clustering
+# -----------------------------
+# Step 9: K-Means Clustering
+# -----------------------------
 kmeans = KMeans(n_clusters=3, random_state=42, n_init=10)
 clusters = kmeans.fit_predict(data[["CO2_Emissions", "GDP", "Population"]])
 data["Cluster"] = clusters
@@ -104,7 +124,9 @@ plt.ylabel("CO2 Emissions")
 plt.savefig("results/clustering_output.png")
 plt.close()
 
-# Insights
+# -----------------------------
+# Step 10: Insights
+# -----------------------------
 print("\n--- Insights ---")
-print("Top Emitters in 2020:")
-print(data[data["Year"] == 2020].sort_values("CO2_Emissions", ascending=False).head(5))
+print("Top Emitters in 2026 (Projected):")
+print(data[data["Year"] == 2026].sort_values("CO2_Emissions", ascending=False).head(5))
