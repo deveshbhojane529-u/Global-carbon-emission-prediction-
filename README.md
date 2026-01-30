@@ -1,56 +1,64 @@
-# Global-carbon-emission-prediction-
-Machine learning project predicting global carbon emissions using real data
-# 🌍 Global Carbon Emission Prediction (1960–2020)
+# 🌍 Global Carbon Emission Prediction (1960–2026)
 
-This project analyzes and predicts **global carbon emissions** using machine learning techniques.  
-It combines historical data (1960–2020) from multiple countries and regions, providing insights into emission trends, country‑level comparisons, and predictive modeling.
+This project applies **machine learning** to analyze and predict global carbon emissions.  
+It combines **historical data (1960–2020)** with **projected values (2021–2026)**, providing insights into emission trends, country‑level comparisons, and sustainability planning.
+
+---
+
+## 🌱 Sustainability Impact
+- Supports **UN Sustainable Development Goal 13: Climate Action**.  
+- Forecasting emissions helps policymakers design effective climate strategies.  
+- Identifying high‑emission clusters guides targeted interventions.  
+- Demonstrates how **AI can be leveraged for environmental sustainability**.
 
 ---
 
 ## 📊 Dataset
-- **Source References:**
-  - [World Bank CO₂ Emissions Data](https://data.worldbank.org/indicator/EN.ATM.CO2E.KT)
-  - [Global Carbon Project](https://www.globalcarbonproject.org/)
-  - [IPCC Climate Reports](https://www.ipcc.ch/reports/)
-- **Features:**
-  - `Country` – Nation/region name
-  - `Year` – 1960–2020
-  - `CO2_Emissions` – Million tons of CO₂
-  - `Population` – Population size
-  - `GDP` – Gross Domestic Product (Billion USD)
-- **Derived Features:**
-  - `Emissions_per_capita`
-  - `GDP_per_capita`
+- **File:** `global_carbon_emissions_1960_2026.csv`  
+- **Columns:**  
+  - `Country` → India, USA, China, EU, Brazil, Japan, Russia, Africa  
+  - `Year` → 1960–2026  
+  - `CO2_Emissions` → Million tons of CO₂  
+  - `Population` → Total population  
+  - `GDP` → Gross Domestic Product (billions USD approx.)  
+  - `Data_Type` → Historical or Projected  
+
+**Note:**  
+- 1960–2020 → Historical data (World Bank, Global Carbon Project).  
+- 2021–2026 → Projected using ML models.  
 
 ---
 
 ## ⚙️ Methodology
-1. **Data Cleaning** – Handle missing values, normalize features.  
-2. **Exploratory Analysis** – Line charts of emissions by country.  
-3. **Feature Engineering** – Per capita emissions, GDP per capita.  
-4. **Model Building**:
-   - Linear Regression
-   - Ridge Regression
-   - Random Forest Regressor
-   - Decision Tree Classifier
-   - K-Means Clustering  
-5. **Evaluation Metrics**:
-   - R² Score
-   - Mean Squared Error (MSE)
-   - Accuracy (for classification)
+1. **Data Cleaning & Preprocessing**  
+2. **Exploratory Analysis** (trend graphs)  
+3. **Feature Engineering** (per capita metrics)  
+4. **Model Building**  
+   - Linear Regression  
+   - Ridge Regression  
+   - Random Forest Regressor  
+   - Decision Tree Classifier  
+   - K‑Means Clustering  
+5. **Evaluation Metrics**  
+   - R² Score  
+   - Mean Squared Error (MSE)  
+   - Accuracy (classification)  
 
 ---
 
 ## 📈 Results
-- **Global Trend Graph** → Emissions growth across countries (1960–2020).  
+- **Global Trend Graph** → Emissions growth across countries (1960–2026).  
 - **Regression Plot** → Actual vs predicted emissions (Linear Regression).  
-- **Model Comparison** → Linear, Ridge, Random Forest (Random Forest performed best, R² ≈ 0.90).  
-- **Clustering Output** → K-Means grouped countries into 3 realistic clusters (high, medium, low emitters).  
-- **Top Emitters in 2020**:
-  1. China – 10,000 Mt  
-  2. USA – 6,000 Mt  
-  3. EU – 4,200 Mt  
-  4. India – 2,400 Mt  
-  5. Africa – 2,000 Mt  
+- **Model Comparison** → Random Forest performed best (R² ≈ 0.90).  
+- **Clustering Output** → K‑Means grouped countries into 3 realistic clusters.  
+
+**Top Emitters in 2026 (Projected):**
+1. China – ~11,100 Mt  
+2. USA – ~6,220 Mt  
+3. EU – ~4,420 Mt  
+4. India – ~2,720 Mt  
+5. Africa – ~2,380 Mt  
 
 ---
+
+## 📂 Project Structure
