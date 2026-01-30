@@ -6,10 +6,10 @@ It combines **historical data (1960–2020)** with **projected values (2021–20
 ---
 
 ##📌 References
-• 	World Bank CO₂ Emissions Data →  (data.worldbank.org in Bing)
-• 	Our World in Data – CO₂ and Greenhouse Gas Emissions Dataset → https://github.com/owid/co2-data
-• 	Global Carbon Project → https://www.globalcarbonproject.org/
-• 	IPCC Climate Reports → https://www.ipcc.ch/reports/
+-	World Bank CO₂ Emissions Data →  (data.worldbank.org in Bing)
+- Our World in Data – CO₂ and Greenhouse Gas Emissions Dataset → https://github.com/owid/co2-data
+-	Global Carbon Project → https://www.globalcarbonproject.org/
+- IPCC Climate Reports → https://www.ipcc.ch/reports/
 
 ## 🌱 Sustainability Impact
 - Supports **UN Sustainable Development Goal 13: Climate Action**.  
